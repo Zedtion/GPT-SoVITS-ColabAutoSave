@@ -13,9 +13,10 @@ os.makedirs(tmp, exist_ok=True)
 os.environ["TEMP"] = tmp
 import site
 site_packages_roots = []
-for path in site.getsitepackages():
-    if "packages" in path:
-        site_packages_roots.append(path)
+site_packages_roots.append(site.getsitepackages()[1])
+# for path in site.getsitepackages():
+#     if "packages" in path:
+#         site_packages_roots.append(path)
 if(site_packages_roots==[]):site_packages_roots=["%s/runtime/Lib/site-packages" % now_dir]
 #os.environ["OPENBLAS_NUM_THREADS"] = "4"
 os.environ["no_proxy"] = "localhost, 127.0.0.1, ::1"
